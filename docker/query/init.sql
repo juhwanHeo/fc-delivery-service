@@ -1,0 +1,18 @@
+CREATE DATABASE agent default CHARACTER SET UTF8; 
+USE agent;
+CREATE USER 'agent'@'%' IDENTIFIED BY 'testtest';
+GRANT ALL PRIVILEGES ON *.* TO 'agent'@'%';
+FLUSH PRIVILEGES;
+
+CREATE DATABASE delivery default CHARACTER SET UTF8; 
+USE delivery;
+CREATE USER 'delivery'@'%' IDENTIFIED BY 'testtest';
+GRANT ALL PRIVILEGES ON *.* TO 'delivery'@'%';
+FLUSH PRIVILEGES;
+
+CREATE DATABASE board default CHARACTER SET UTF8; 
+USE board;
+CREATE USER 'board'@'%' IDENTIFIED BY 'testtest';
+GRANT ALL PRIVILEGES ON *.* TO 'board'@'%';
+FLUSH PRIVILEGES;
+
