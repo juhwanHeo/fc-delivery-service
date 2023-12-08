@@ -23,7 +23,7 @@ class HelloWebsocketChattingConfig: WebSocketMessageBrokerConfigurer {
 
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
         registry.addEndpoint(ENDPOINT)
-            .setAllowedOrigins("*")
+            .setAllowedOriginPatterns("*")
     }
 
 }
