@@ -1,5 +1,8 @@
 *docker/data/*
 
+*/.gradle
+*/.idea
+
 # Compiled class file
 *.class
 
