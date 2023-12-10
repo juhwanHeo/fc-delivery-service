@@ -1,8 +1,9 @@
-echo ****************** Reset docker container ******************
-docker-compose -f ./docker-compose.yml down
+echo "****************** Reset docker container ******************"
+docker-compose down
 
-echo ****************** Remove Data ******************
-rm -rf ./data
-echo ****************** Completed Remove Data******************
+sleep 10
+echo "****************** Remove Data ******************"
+rm -rf ./mysql/data
+echo "****************** Completed Remove Data******************"
 
-docker-compose -f ./docker-compose.yml up
+docker-compose up

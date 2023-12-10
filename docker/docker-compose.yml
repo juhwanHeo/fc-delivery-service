@@ -4,14 +4,9 @@ services:
         image: mysql:8.0.32
         container_name: mysql
         ports:
-            - 3306:3306
+            - "13306:3306"
         environment:
-            MYSQL_ROOT_PASSWORD: admin
-        # command:
-        #   - --character-set-server=utf8mb4
-        #   - --collation-server=utf8mb4_unicode_ci
-        #   - --innodb-buffer-pool-size=2G
+            MYSQL_ROOT_PASSWORD: root123
         volumes:
-            - ./mysql/conf.d:/etc/mysql/conf.d
             - ./mysql/data:/var/lib/mysql
-            - ./mysql/query/:/docker-entrypoint-initdb.d
+            - ./mysql/query:/docker-entrypoint-initdb.d
