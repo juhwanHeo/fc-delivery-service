@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:food_delivery;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS food_delivery;
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
