@@ -1,0 +1,2 @@
+### 음식 상세 조회
+GET http://localhost:8081/apis/display/menus/1?storeId=1
