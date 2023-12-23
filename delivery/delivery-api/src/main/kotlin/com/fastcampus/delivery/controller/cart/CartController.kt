@@ -4,6 +4,7 @@ import com.fastcampus.delivery.controller.cart.dto.CartMenuDto
 import com.fastcampus.delivery.controller.cart.dto.CartQueryRequest
 import com.fastcampus.delivery.controller.cart.dto.CartQueryResponse
 import com.fastcampus.delivery.service.cart.CartService
+import com.fastcampus.delivery.service.cartitem.CartItemService
 import io.github.oshai.kotlinlogging.KotlinLogging
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/apis/carts")
 class CartController(
     private val cartService: CartService,
+    private val cartItemService: CartItemService,
 ) {
     companion object {
         private val logger = KotlinLogging.logger(this::class.java.name)
@@ -45,8 +47,9 @@ class CartController(
         pageable: Pageable,
     ): ResponseEntity<CartQueryResponse> {
         logger.info { ">>> 장바구니 조회 요청 $cartQueryRequest" }
-        val cartMenuPage = cartService.findByCustomerId(cartQueryRequest.customerId)
-        val cartItems = cartMenuPage.map { CartMenuDto.from(it) }
+        val cart = cartService.findByCustomerId(cartQueryRequest.customerId)
+        val cartMenus = cartItemService.findAllByCartId(cart.cartId)
+        val cartItems = cartMenus.map { CartMenuDto.from(it) }
         return ResponseEntity.ok(
             CartQueryResponse(
                 customerId = cartQueryRequest.customerId,

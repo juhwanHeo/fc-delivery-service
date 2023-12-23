@@ -1,6 +1,6 @@
 server:
   port: 8081
-#  role-name: delivery-api
+  role-name: delivery-api
 
 spring:
   jpa:
