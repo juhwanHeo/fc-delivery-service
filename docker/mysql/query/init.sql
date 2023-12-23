@@ -50,6 +50,8 @@ CREATE TABLE `cart_items` (
 
 LOCK TABLES `cart_items` WRITE;
 /*!40000 ALTER TABLE `cart_items` DISABLE KEYS */;
+insert into cart_items (cart_item_id ,cart_id, menu_id, store_id, quantity, is_deleted, created_at, updated_at, created_by,updated_by)
+values (1, 1, 3, 1, 3,false, '2023-10-14 21:34:1', '2023-10-14 21:34:1', 'delivery-api', 'delivery-api');
 /*!40000 ALTER TABLE `cart_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,6 +80,9 @@ CREATE TABLE `carts` (
 
 LOCK TABLES `carts` WRITE;
 /*!40000 ALTER TABLE `carts` DISABLE KEYS */;
+insert into carts(cart_id, customer_id, is_deleted, created_at, updated_at, created_by,updated_by)
+values (1, 3, false, '2023-10-14 21:34:1', '2023-10-14 21:34:1', 'delivery-api', 'delivery-api');
+
 /*!40000 ALTER TABLE `carts` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -1,0 +1,2 @@
+### 장바구니 조회
+GET http://localhost:8081/apis/carts/items?customerId=3
